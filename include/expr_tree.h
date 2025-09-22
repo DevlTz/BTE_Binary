@@ -7,7 +7,7 @@
 struct Node {
     bool is_op;
     char op; // valid if is_op == true
-    long long val; // valid is_op == false
+    long long val; // valid if is_op == false
     Node* left;
     Node* right;
     Node(long long v): is_op(false), op('\0'), val(v), left(nullptr), right(nullptr) {}
