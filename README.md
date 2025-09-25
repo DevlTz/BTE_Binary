@@ -1,11 +1,11 @@
 # RPN Calculator (C++)
 
-Este repositório contém um pequeno projeto em C++ que:
-- Constrói uma **árvore binária** representando expressões aritméticas em **notação polonesa reversa (RPN / pós-fixada)**.
-- Avalia a expressão e imprime o resultado na saída padrão.
-- Tratamento de erros básicos: tokens inválidos, operandos insuficientes, divisão por zero.
+This repository contains a small C++ project that:
+- Builds a **binary expression tree** representing arithmetic expressions in **Reverse Polish Notation (RPN / postfix)**.
+- Evaluates the expression and prints the result to standard output.
+- Provides basic error handling: invalid tokens, insufficient operands, division by zero.
 
-## Estrutura do repositório
+## Repository structure
 
 ```
 rpn_calc_cpp/
@@ -23,24 +23,24 @@ rpn_calc_cpp/
 ├─ LICENSE
 ```
 
-## Requisitos
+## Requirements
 
-- Compilador C++ moderno (recomendo `g++` >= 9 ou `clang++`).
-- CMake (opcional) para build.
+- A modern C++ compiler (recommended `g++` >= 9 or `clang++`).
+- CMake (optional) for building.
 
-## Como compilar
+## How to compile
 
-### Com g++
+### With g++
 ```bash
 g++ -std=c++17 src/main.cpp src/expr_tree.cpp -o calc
 ```
 
-### Com Makefile
+### With Makefile
 ```
 make
 ```
 
-### Com CMake
+### With CMake
 ```bash
 mkdir -p build
 cd build
@@ -48,30 +48,37 @@ cmake ..
 cmake --build .
 ```
 
-## Uso
-O programa lê tokens passados por argumentos na linha de comando. Cada token deve ser um inteiro (ex: `3` ou `-12`) ou um operador `+ - * /`.
+## Usage
+The program reads tokens provided as command-line arguments. Each token must be an integer (e.g., `3` or `-12`) or one of the operators `+ - * /`.
 
-Exemplos:
+Examples:
 ```bash
 ./calc 1 2 + 3 *
 # output: 9
 
 ./calc 5 1 2 + 4 * + 3 -
-# equivalente a: 5 + ((1+2)*4) - 3 = 14
+# equivalent to: 5 + ((1+2)*4) - 3 = 14
 ```
 
-O programa mantém aritmética inteira (tipo `long long`) e faz divisão inteira (truncamento em direção a zero). Se quiser aritmética em ponto flutuante, comente no issue ou modifique `expr_tree.cpp`.
+Note: When using shell wildcards like `*`, the shell may expand them before passing to the program. To avoid shell expansion for the asterisk operator, quote or escape it:
+```bash
+./calc 1 2 + 3 '*'
+# or
+./calc 1 2 + 3 \*
+```
 
-## Onde começar
-1. Abra `src/main.cpp` para ver a lógica de processamento dos argumentos.
-2. `include/expr_tree.h` e `src/expr_tree.cpp` implementam a árvore e a avaliação.
-3. Rode `make` ou compile diretamente com `g++`.
-4. Teste com as expressões em `examples/` ou crie suas próprias.
+The program uses integer arithmetic (`long long`) and performs integer division (truncation toward zero). If you prefer floating-point arithmetic, modify `expr_tree.cpp` or open an issue.
 
-## Links úteis
-- Notação polonesa reversa (RPN): https://en.wikipedia.org/wiki/Reverse_Polish_notation
-- Árvores de expressão: https://en.wikipedia.org/wiki/Binary_expression_tree
-- Guia de CMake: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+## Getting started
+1. Open `src/main.cpp` to see how command-line tokens are processed.
+2. `include/expr_tree.h` and `src/expr_tree.cpp` implement the expression tree and evaluation.
+3. Run `make` or compile directly with `g++`.
+4. Test using the expressions in `examples/` or create your own.
 
-## Licença
-MIT — veja `LICENSE`.
+## Useful links
+- Reverse Polish notation (RPN): https://en.wikipedia.org/wiki/Reverse_Polish_notation
+- Expression trees: https://en.wikipedia.org/wiki/Binary_expression_tree
+- CMake tutorial: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+
+## License
+MIT — see `LICENSE`.
