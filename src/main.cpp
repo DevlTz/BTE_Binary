@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     set_trace_enabled(true);
 
     try {
-        auto root = parse_rpn_expression(tokens); // unique_ptr<Node>
+        auto root = parse_calculator_expression(tokens); // unique_ptr<Node>
         long long result = evaluate_tree(root.get());
         std::cout << std::endl << "Final expression (infix): " << pretty_print(root.get()) << std::endl;
         std::cout << "Final result: " << result << std::endl;
