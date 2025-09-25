@@ -21,7 +21,7 @@ struct Node {
         : is_op(true), op(o), val(0), left(std::move(l)), right(std::move(r)) {}
 };
 
-// Parses a Calculator into expression then into an expression tree
+// Parses a calculator expression into an expression tree
 std::unique_ptr<Node> parse_calculator_expression(const std::vector<std::string>& tokens);
 
 // Evaluates the expression tree and returns the result
