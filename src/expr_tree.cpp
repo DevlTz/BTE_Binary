@@ -6,8 +6,10 @@
 #include <iostream>
 #include <cstdlib>
 
+
 // Global flag for enabling/disabling trace output
 static bool TRACE = true;
+
 void set_trace_enabled(bool enabled) { TRACE = enabled; }
 
 // Helper function to check if a string is an operator
@@ -55,7 +57,7 @@ std::string pretty_print(const Node* root) {
 }
 
 // Parses a Reverse Polish Notation (RPN) expression into an expression tree
-std::unique_ptr<Node> parse_rpn_expression(const std::vector<std::string>& tokens) {
+std::unique_ptr<Node> parse_calculator_expression(const std::vector<std::string>& tokens) {
     std::stack<std::unique_ptr<Node>> st; // Stack to build the tree
 
     for (const auto& t : tokens) {
