@@ -1,7 +1,7 @@
-# RPN Calculator (C++)
+# Binary Calculator (C++)
 
 This repository contains a small C++ project that:
-- Builds a **binary expression tree** representing arithmetic expressions in **Reverse Polish Notation (RPN / postfix)**.
+- Builds a **binary expression tree** representing arithmetic expressions in **Reverse Polish Notation (RPN / postfix) or Binary Calculator - As you prefer**.
 - Evaluates the expression and prints the result to standard output.
 - Provides basic error handling: invalid tokens, insufficient operands, division by zero.
 
