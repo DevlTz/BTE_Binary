@@ -6,7 +6,7 @@
 #include <iostream>
 #include <cstdlib>
 
-static bool TRACE = true;
+static bool TRACE = false;
 void set_trace_enabled(bool enabled) { TRACE = enabled; }
 
 static bool is_operator(const std::string& s) {
