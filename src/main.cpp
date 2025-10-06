@@ -16,8 +16,6 @@ int main(int argc, char** argv) {
         for (int i = 1; i < argc; ++i) tokens.emplace_back(argv[i]);
     }
 
-    set_trace_enabled(true);
-
     try {
         auto root = parse_calculator_expression(tokens); // unique_ptr<Node>
         long long result = evaluate_tree(root.get());

@@ -16,9 +16,9 @@ struct Node {
     Node(long long v)
         : is_op(false), op('\0'), val(v), left(nullptr), right(nullptr) {}
 
-    // Constructor for operator node, takes ownership of child nodes
+    // Constructor for operator node
     Node(char o, std::unique_ptr<Node> l, std::unique_ptr<Node> r)
-        : is_op(true), op(o), val(0), left(std::move(l)), right(std::move(r)) {}
+        : is_op(true), op(o), val(0), left(std::move(l)), right(std::move(r)) {} // takes ownership of child nodes
 };
 
 // Parses a calculator expression into an expression tree
@@ -29,7 +29,3 @@ long long evaluate_tree(const Node* root);
 
 // Returns a pretty-printed string representation of the expression tree
 std::string pretty_print(const Node* root);
-
-// Enables or disables tracing for debugging 
-void set_trace_enabled(bool enabled);
-
